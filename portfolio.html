@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ratih Mar'atus Sholihah | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #0f172a; color: #f8fafc; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .text-grad { background: linear-gradient(to right, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed w-full z-50 px-6 py-4">
+        <div class="max-w-6xl mx-auto glass rounded-2xl px-8 py-3 flex justify-between items-center">
+            <span class="text-xl font-extrabold tracking-tighter italic">Ratih M S<span class="text-blue-500">.</span></span>
+            <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest">
+                <a href="#home" class="hover:text-blue-400 transition">Home</a>
+                <a href="#about" class="hover:text-blue-400 transition">About</a>
+                <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
+                <a href="#research" class="hover:text-blue-400 transition">Research</a>
+            </div>
+            <a href="mailto:ratihsholihah8@gmail.com" class="bg-blue-600 px-5 py-2 rounded-xl text-xs font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/20">Hire Me</a>
+        </div>
+    </nav>
+
+    <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-28 lg:pt-20 relative overflow-hidden">
+        <div class="absolute top-1/4 -left-20 w-96 h-96 bg-blue-600/10 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-purple-600/10 blur-[120px] rounded-full"></div>
+
+        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+            
+            <div class="flex-1 relative order-1">
+                <div class="relative z-10">
+                    <div class="relative w-72 h-72 md:w-[450px] md:h-[450px] mx-auto lg:mx-0 rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl group">
+                        <img src="foto(1).png" alt="Ratih Mar'atus Sholihah" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
+                    </div>
+
+                    <div class="absolute -bottom-6 -right-6 glass p-6 rounded-2xl border border-white/10 hidden md:block">
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-green-500 animate-ping"></div>
+                            <span class="text-[10px] font-bold tracking-widest uppercase">Available to Hire</span>
+                        </div>
+                    </div>
+
+                    <div class="absolute top-10 -left-6 glass p-4 rounded-2xl border border-white/10 hidden md:block rotate-[-10deg]">
+                        <p class="text-xs font-bold text-blue-400">Mobile Dev Expert</p>
+                    </div>
+                </div>
+                
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-white/5 rounded-full -z-10"></div>
+            </div>
+
+            <div class="flex-1 text-center lg:text-left order-2">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-blue-500/20 mb-8">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                    </span>
+                    <span class="text-blue-400 text-[10px] font-bold tracking-[0.2em] uppercase">Awardee Beasiswa U-GO</span>
+                </div>
+
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tighter leading-[1.1] text-white">
+                    Ratih Mar'atus <br> 
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 italic">Sholihah.</span>
+                </h1>
+
+                <p class="text-slate-400 text-lg md:text-xl max-w-xl mb-12 font-light leading-relaxed mx-auto lg:mx-0">
+                    Membangun pengalaman digital yang bermakna melalui <span class="text-white font-semibold">Mobile Development</span> dan <span class="text-white font-semibold">UI/UX Design</span>.
+                </p>
+
+                <div class="flex flex-col sm:row items-center justify-center lg:justify-start gap-4">
+                    <a href="#projects" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-2xl font-bold transition-all duration-300 shadow-xl shadow-blue-500/20 transform hover:-translate-y-1 text-center">
+                        See My Projects
+                    </a>
+                    <a href="Ratih Mar'atus Sholihah-resume (6).pdf" download class="w-full sm:w-auto border border-blue-500/30 hover:bg-blue-500/10 text-blue-400 px-8 py-4 rounded-2xl font-bold transition-all duration-300 flex items-center justify-center gap-2 transform hover:-translate-y-1">
+                        <i class="fas fa-download text-sm"></i> Download CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        @keyframes bounce-slow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-bounce-slow {
+            animation: bounce-slow 4s ease-in-out infinite;
+        }
+    </style>
+
+    <section id="about" class="py-24 px-6 bg-[#0f172a] relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold italic tracking-tight text-white mb-4">
+                    Technical <span class="text-blue-500">Proficiency.</span>
+                </h2>
+                <div class="h-1 w-20 bg-blue-600 rounded-full"></div>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-12 items-start">
+                
+                <div class="lg:col-span-5 space-y-8">
+                    <div class="glass p-8 rounded-[2rem] border border-white/10 shadow-xl">
+                        <h3 class="text-xl font-bold mb-4 text-white">Full-Stack Capability</h3>
+                        <p class="text-slate-400 leading-relaxed text-sm mb-6">
+                            Berdasarkan rekam jejak proyek di <span class="text-white font-semibold">Politeknik Negeri Jember</span> dan riset publikasi, saya menguasai ekosistem pengembangan dari Mobile hingga Hardware (IoT).
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4 group">
+                                <div class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white">Mobile & Web</h4>
+                                    <p class="text-[10px] text-slate-500 uppercase tracking-widest">Flutter, Kotlin, Laravel</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-4 group">
+                                <div class="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-all">
+                                    <i class="fas fa-paint-brush"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white">UI/UX & Research</h4>
+                                    <p class="text-[10px] text-slate-500 uppercase tracking-widest">Figma, FURPS, User Research</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-4 group">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-all">
+                                    <i class="fas fa-microchip"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white">Embedded System</h4>
+                                    <p class="text-[10px] text-slate-500 uppercase tracking-widest">C++, Python, IoT Hardware</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-blue-600 to-indigo-700 p-8 rounded-[2rem] shadow-lg shadow-blue-500/20">
+                        <p class="text-white/80 text-xs font-bold uppercase tracking-[0.2em] mb-2">Academic Standing</p>
+                        <h4 class="text-3xl font-black text-white">GPA 3.97 / 4.00</h4>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <div class="glass p-8 md:p-10 rounded-[2.5rem] border border-white/10 shadow-2xl relative overflow-hidden">
+                        <div class="absolute -top-24 -right-24 w-64 h-64 bg-blue-500/10 blur-[80px] rounded-full"></div>
+                        
+                        <div class="flex justify-between items-center mb-10">
+                            <div>
+                                <h3 class="text-lg font-bold text-white">Skill Matrix</h3>
+                                <p class="text-[10px] text-slate-500 uppercase tracking-widest">Proficiency Level Based on Project Hours</p>
+                            </div>
+                            <i class="fas fa-chart-bar text-slate-700 text-2xl"></i>
+                        </div>
+
+                        <div class="h-[450px]">
+                            <canvas id="skillsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const ctx = document.getElementById('skillsChart').getContext('2d');
+        
+        // Gradien Warna Blue
+        const gradBlue = ctx.createLinearGradient(0, 0, 400, 0);
+        gradBlue.addColorStop(0, '#3b82f6');
+        gradBlue.addColorStop(1, '#60a5fa');
+
+        // Gradien Warna Indigo
+        const gradIndigo = ctx.createLinearGradient(0, 0, 400, 0);
+        gradIndigo.addColorStop(0, '#6366f1');
+        gradIndigo.addColorStop(1, '#818cf8');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    'Flutter', 'Figma', 'Kotlin', 'Java', 'User Research', 
+                    'MySQL', 'Laravel', 'C++', 'Python'
+                ],
+                datasets: [{
+                    data: [95, 92, 85, 82, 88, 80, 78, 75, 70],
+                    backgroundColor: [
+                        gradBlue, gradIndigo, gradBlue, gradBlue, gradIndigo, 
+                        gradBlue, gradBlue, '#10b981', '#10b981'
+                    ],
+                    borderRadius: 25,
+                    borderSkipped: false,
+                    barThickness: 15
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        enabled: true,
+                        backgroundColor: '#1e293b',
+                        padding: 12,
+                        bodyFont: { family: 'Plus Jakarta Sans', size: 12 }
+                    }
+                },
+                scales: {
+                    x: {
+                        max: 100,
+                        grid: { color: 'rgba(255,255,255,0.05)', drawBorder: false },
+                        ticks: { color: '#64748b', font: { size: 10 } }
+                    },
+                    y: {
+                        grid: { display: false },
+                        ticks: { 
+                            color: '#f8fafc', 
+                            font: { family: 'Plus Jakarta Sans', size: 12, weight: '600' } 
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+    <section id="projects" class="py-24 px-6 bg-[#0f172a]">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-extrabold italic text-white mb-4">Featured <span class="text-blue-500">Projects.</span></h2>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <div class="group glass p-8 rounded-[2.5rem] border border-white/5 hover:border-blue-500/50 transition-all duration-500 cursor-pointer" onclick="openProject('silab')">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
+                            <i class="fas fa-microscope text-2xl"></i>
+                        </div>
+                        <span class="text-[10px] font-bold text-slate-500 group-hover:text-blue-400 transition">2025 • FULL STACK</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:translate-x-2 transition-transform">SILAB: Lab Digitalization</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-6 line-clamp-2">
+                        Mendigitalisasi manajemen lab akademik. Memangkas waktu pinjam alat dari 24 jam menjadi 1 jam.
+                    </p>
+                    <div class="flex items-center text-blue-400 text-[10px] font-bold uppercase tracking-widest gap-2">
+                        Explore Details <i class="fas fa-arrow-right animate-pulse"></i>
+                    </div>
+                </div>
+
+                <div class="group glass p-8 rounded-[2.5rem] border border-white/5 hover:border-indigo-500/50 transition-all duration-500 cursor-pointer" onclick="openProject('sneak')">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-14 h-14 bg-indigo-500/10 rounded-2xl flex items-center justify-center text-indigo-400 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-500">
+                            <i class="fas fa-store text-2xl"></i>
+                        </div>
+                        <span class="text-[10px] font-bold text-slate-500 group-hover:text-indigo-400 transition">2024 • MOBILE DEV</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:translate-x-2 transition-transform">SNEAK-APP: POS System</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-6 line-clamp-2">
+                        Meningkatkan konversi penjualan UMKM sepatu hingga 35% melalui sistem manajemen stok real-time.
+                    </p>
+                    <div class="flex items-center text-indigo-400 text-[10px] font-bold uppercase tracking-widest gap-2">
+                        Explore Details <i class="fas fa-arrow-right animate-pulse"></i>
+                    </div>
+                </div>
+
+                <div class="group glass p-8 rounded-[2.5rem] border border-white/5 hover:border-emerald-500/50 transition-all duration-500 cursor-pointer" onclick="openProject('siresta')">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-emerald-400 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-500">
+                            <i class="fas fa-file-contract text-2xl"></i>
+                        </div>
+                        <span class="text-[10px] font-bold text-slate-500 group-hover:text-emerald-400 transition">2024 • DESKTOP</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:translate-x-2 transition-transform">SIRESTA: Admin Polresta</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-6 line-clamp-2">
+                        Otomatisasi surat menyurat Satlantas Sidoarjo. Mempercepat pencarian data dari 15 menit ke 30 detik.
+                    </p>
+                    <div class="flex items-center text-emerald-400 text-[10px] font-bold uppercase tracking-widest gap-2">
+                        Explore Details <i class="fas fa-arrow-right animate-pulse"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div id="projectModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-6 lg:p-12">
+        <div class="absolute inset-0 bg-slate-950/90 backdrop-blur-md" onclick="closeProject()"></div>
+        
+        <div class="relative glass w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-[3rem] border border-white/10 shadow-2xl p-8 md:p-12">
+            <button onclick="closeProject()" class="absolute top-8 right-8 text-slate-500 hover:text-white text-2xl transition">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div id="modalContent">
+                </div>
+        </div>
+    </div>
+
+    <script>
+        const projectData = {
+            silab: {
+                title: "SILAB: Lab Information System",
+                problem: "Sistem peminjaman alat lab di Politeknik Negeri Jember yang masih manual sering menyebabkan antrean panjang dan risiko kehilangan data. Mahasiswa harus menunggu hingga 24 jam untuk verifikasi.",
+                stack: "Flutter, Laravel (API), MySQL, Firebase Cloud Messaging.",
+                features: "Real-time Notification, QR Code Scanning, Admin Dashboard, Digital Inventory.",
+                challenge: "Menghubungkan data inventaris fisik dengan sistem database agar sinkron secara real-time.",
+                solution: "Implementasi FCM untuk notifikasi instan kepada teknisi lab saat ada pengajuan baru.",
+                link: "https://github.com/Ratihmsh"
+            },
+            sneak: {
+                title: "SNEAK-APP: Point Of Sale",
+                problem: "UMKM Sneak Crafters kesulitan mengelola stok dan laporan keuangan bulanan secara manual, menyebabkan ketidakpastian profit.",
+                stack: "Kotlin (Android Native), Room Database, Retrofit.",
+                features: "Stock Management, Automatic Financial Report, Transaction History.",
+                challenge: "Memastikan aplikasi dapat berjalan offline namun data tetap konsisten.",
+                solution: "Menggunakan Room Database sebagai local storage dengan sinkronisasi periodik ke cloud.",
+                link: "https://github.com/Ratihmsh"
+            },
+            siresta: {
+                title: "SIRESTA: Polresta Sidoarjo",
+                problem: "Pencarian berkas surat menyurat di Satlantas Polresta Sidoarjo memakan waktu hingga 15 menit per berkas karena arsip fisik yang menumpuk.",
+                stack: "Java Desktop, MySQL, JasperReports.",
+                features: "Automated Letter Generation, Rapid Database Search, PDF Export.",
+                challenge: "Mengonversi format surat resmi kepolisian yang kaku ke dalam template digital otomatis.",
+                solution: "Membuat template mesin berbasis JasperReports untuk mencetak surat otomatis hanya dengan input data singkat.",
+                link: "https://github.com/Ratihmsh"
+            }
+        };
+
+        function openProject(id) {
+            const data = projectData[id];
+            const modal = document.getElementById('projectModal');
+            const content = document.getElementById('modalContent');
+            
+            content.innerHTML = `
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-6">${data.title}</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-blue-400 font-bold text-xs uppercase tracking-widest mb-2 italic">Problem & Context</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed">${data.problem}</p>
+                            </div>
+                            <div>
+                                <h4 class="text-blue-400 font-bold text-xs uppercase tracking-widest mb-2 italic">Tech Stack</h4>
+                                <p class="text-white font-mono text-sm">${data.stack}</p>
+                            </div>
+                            <div class="flex gap-4 pt-6">
+                                <a href="${data.link}" class="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold text-sm">View GitHub</a>
+                                <a href="#" class="border border-white/10 text-white px-6 py-3 rounded-xl font-bold text-sm">Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-6 p-8 bg-white/5 rounded-[2rem]">
+                        <div>
+                            <h4 class="text-indigo-400 font-bold text-xs uppercase tracking-widest mb-2">Key Features</h4>
+                            <p class="text-slate-300 text-sm italic">${data.features}</p>
+                        </div>
+                        <hr class="border-white/5">
+                        <div>
+                            <h4 class="text-emerald-400 font-bold text-xs uppercase tracking-widest mb-2">Technical Challenge</h4>
+                            <p class="text-slate-400 text-sm">${data.challenge}</p>
+                        </div>
+                        <div>
+                            <h4 class="text-emerald-400 font-bold text-xs uppercase tracking-widest mb-2 text-emerald-300 italic">The Solution</h4>
+                            <p class="text-slate-400 text-sm">${data.solution}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Stop scrolling
+        }
+
+        function closeProject() {
+            const modal = document.getElementById('projectModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+    </script>
+
+    <section id="experience" class="py-24 px-6 bg-slate-900/50">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold italic text-white mb-4">
+                    Professional <span class="text-blue-500">Development.</span>
+                </h2>
+                <p class="text-slate-500 max-w-2xl font-light">
+                    Sertifikasi dan pelatihan intensif yang telah saya selesaikan untuk memperdalam kompetensi di bidang Mobile Development, UI/UX, dan Communication Skills.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="group relative glass p-4 rounded-[2rem] border border-white/5 hover:border-blue-500/30 transition-all duration-500">
+                    <div class="relative overflow-hidden rounded-2xl aspect-[4/3] mb-6">
+                        <img src="sertifikat-komunikasi.jpg" alt="Pelatihan Komunikasi Polije" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                            <i class="fas fa-search-plus text-white text-3xl"></i>
+                        </div>
+                    </div>
+                    <div class="px-2 pb-2">
+                        <span class="text-blue-400 text-[10px] font-bold uppercase tracking-widest">Politeknik Negeri Jember</span>
+                        <h3 class="text-white font-bold mt-1 group-hover:text-blue-400 transition">Pelatihan Komunikasi Efektif</h3>
+                        <p class="text-slate-500 text-xs mt-2 italic">Fokus: Public Speaking & Profesionalisme</p>
+                    </div>
+                </div>
+
+                <div class="group relative glass p-4 rounded-[2rem] border border-white/5 hover:border-indigo-500/30 transition-all duration-500">
+                    <div class="relative overflow-hidden rounded-2xl aspect-[4/3] mb-6">
+                        <img src="sertifikat-flutter.jpg" alt="Flutter Bootcamp" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-indigo-600/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <i class="fas fa-search-plus text-white text-3xl"></i>
+                        </div>
+                    </div>
+                    <div class="px-2 pb-2">
+                        <span class="text-indigo-400 text-[10px] font-bold uppercase tracking-widest">Bootcamp Tech</span>
+                        <h3 class="text-white font-bold mt-1 group-hover:text-indigo-400 transition">Mobile Development (Flutter)</h3>
+                        <p class="text-slate-500 text-xs mt-2 italic">Fokus: State Management & API Integration</p>
+                    </div>
+                </div>
+
+                <div class="group relative glass p-4 rounded-[2rem] border border-white/5 hover:border-emerald-500/30 transition-all duration-500">
+                    <div class="relative overflow-hidden rounded-2xl aspect-[4/3] mb-6">
+                        <img src="sertifikat-ux.jpg" alt="UI/UX Design" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-emerald-600/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <i class="fas fa-search-plus text-white text-3xl"></i>
+                        </div>
+                    </div>
+                    <div class="px-2 pb-2">
+                        <span class="text-emerald-400 text-[10px] font-bold uppercase tracking-widest">Design Workshop</span>
+                        <h3 class="text-white font-bold mt-1 group-hover:text-emerald-400 transition">UI/UX Design Mastery</h3>
+                        <p class="text-slate-500 text-xs mt-2 italic">Fokus: Design Thinking & Prototyping</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Kamu bisa menambahkan library Lightbox atau cukup logic sederhana
+        // untuk membuka gambar di tab baru saat diklik:
+        document.querySelectorAll('#experience img').forEach(img => {
+            img.parentElement.style.cursor = 'zoom-in';
+            img.parentElement.addEventListener('click', () => {
+                window.open(img.src, '_blank');
+            });
+        });
+    </script>
+
+<section id="research" class="py-24 bg-[#0f172a] px-6 relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 blur-[100px] rounded-full"></div>
+    
+    <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-extrabold italic text-white mb-4">Scientific <span class="text-blue-500">Publications.</span></h2>
+            <p class="text-slate-500 max-w-2xl mx-auto text-sm font-light">
+                Kontribusi dalam riset teknologi informasi yang telah dipublikasikan di jurnal nasional dan internasional sebagai bukti kedalaman analisis teknis.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="group relative glass p-8 rounded-[2.5rem] border border-white/5 hover:border-blue-500/30 transition-all duration-500">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="bg-blue-500/10 p-4 rounded-2xl text-blue-400">
+                        <i class="fas fa-file-alt text-2xl"></i>
+                    </div>
+                    <span class="text-[10px] font-bold text-slate-500 bg-white/5 px-3 py-1 rounded-full uppercase tracking-widest">Jurnal JTI</span>
+                </div>
+                
+                <h3 class="text-xl font-bold text-white mb-3 leading-tight group-hover:text-blue-400 transition">
+                    Sneak-App Quality Measurement Using FURPS Model
+                </h3>
+                <p class="text-slate-500 text-xs leading-relaxed mb-6">
+                    Menganalisis kualitas perangkat lunak menggunakan model FURPS dan Euclidean Distance untuk memastikan akurasi performa sistem POS.
+                </p>
+                
+                <div class="flex items-center justify-between pt-6 border-t border-white/5">
+                    <span class="text-[10px] text-slate-400 italic">Maret 2025 • Published</span>
+                    <a href="#" class="text-blue-400 text-xs font-bold hover:underline flex items-center gap-2">
+                        Read Full Paper <i class="fas fa-external-link-alt text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="group relative glass p-8 rounded-[2.5rem] border border-white/5 hover:border-emerald-500/30 transition-all duration-500">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="bg-emerald-500/10 p-4 rounded-2xl text-emerald-400">
+                        <i class="fas fa-microchip text-2xl"></i>
+                    </div>
+                    <span class="text-[10px] font-bold text-slate-500 bg-white/5 px-3 py-1 rounded-full uppercase tracking-widest">Jurnal JITET</span>
+                </div>
+                
+                <h3 class="text-xl font-bold text-white mb-3 leading-tight group-hover:text-emerald-400 transition">
+                    IoT Fishing Bait Detection & Fuzzy Logic System
+                </h3>
+                <p class="text-slate-500 text-xs leading-relaxed mb-6">
+                    Riset implementasi sistem deteksi aktivitas umpan pancing dan pengukuran berat ikan berbasis IoT menggunakan logika Fuzzy.
+                </p>
+                
+                <div class="flex items-center justify-between pt-6 border-t border-white/5">
+                    <span class="text-[10px] text-slate-400 italic">April 2025 • Published</span>
+                    <a href="#" class="text-emerald-400 text-xs font-bold hover:underline flex items-center gap-2">
+                        Read Full Paper <i class="fas fa-external-link-alt text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12 glass p-6 rounded-3xl border border-blue-500/20 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/30">
+                    <i class="fas fa-certificate text-xl"></i>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-sm">Hak Kekayaan Intelektual (HKI) Terdaftar</h4>
+                    <p class="text-[10px] text-slate-500 uppercase tracking-widest">No. EC002025188537 • BITEWORKS POS</p>
+                </div>
+            </div>
+            <span class="px-6 py-2 bg-blue-600/10 text-blue-400 rounded-xl text-[10px] font-bold border border-blue-500/20">
+                Verified Innovation
+            </span>
+        </div>
+    </div>
+</section>
+
+    <footer class="py-20 text-center border-t border-white/5">
+        <div class="flex justify-center gap-6 mb-8 text-xl">
+            <a href="https://github.com/Ratihmsh" class="hover:text-blue-400"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/ratih-mar-atus-sholihah-8a08a1319" class="hover:text-blue-400"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p class="text-[10px] text-slate-600 font-bold uppercase tracking-[0.4em]">© 2025 Ratih Mar'atus Sholihah</p>
+    </footer>
+
+    <button onclick="exportToPDF()" class="fixed bottom-8 right-8 z-[60] bg-white/10 backdrop-blur-md border border-white/20 text-white p-4 rounded-full shadow-2xl hover:bg-blue-600 transition-all duration-500 group" title="Export to PDF">
+        <i class="fas fa-file-pdf text-xl group-hover:scale-110"></i>
+        <span class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 whitespace-nowrap ml-0 group-hover:ml-2 text-xs font-bold uppercase tracking-widest">Export PDF</span>
+    </button>
+
+    <script>
+        function exportToPDF() {
+            const element = document.body;
+            const opt = {
+                margin:       0,
+                filename:     'Portfolio_Ratih_Maratus_Sholihah.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true, backgroundColor: '#0f172a' },
+                jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+            };
+
+            // Tambahkan efek loading sederhana
+            const btn = event.currentTarget;
+            const originalContent = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner animate-spin"></i>';
+            
+            html2pdf().set(opt).from(element).save().then(() => {
+                btn.innerHTML = originalContent;
+            });
+        }
+    </script>
+
+</body>
+</html>
