@@ -18,16 +18,84 @@
 
     <nav class="fixed w-full z-50 px-6 py-4">
         <div class="max-w-6xl mx-auto glass rounded-2xl px-8 py-3 flex justify-between items-center">
-            <span class="text-xl font-extrabold tracking-tighter italic">Ratih M S<span class="text-blue-500">.</span></span>
-            <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest">
-                <a href="#home" class="hover:text-blue-400 transition">Home</a>
-                <a href="#about" class="hover:text-blue-400 transition">About</a>
-                <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
-                <a href="#research" class="hover:text-blue-400 transition">Research</a>
+
+            <div class="hidden md:flex space-x-8 text-[13px] font-bold uppercase tracking-widest">
+                <a href="#home" class="nav-link text-slate-400 transition-all duration-300">Home</a>
+                <a href="#about" class="nav-link text-slate-400 transition-all duration-300">About</a>
+                <a href="#projects" class="nav-link text-slate-400 transition-all duration-300">Projects</a>
+                <a href="#journey" class="nav-link text-slate-400 transition-all duration-300">Journey</a>
+                <a href="#research" class="nav-link text-slate-400 transition-all duration-300">Research</a>
             </div>
-            <a href="mailto:ratihsholihah8@gmail.com" class="bg-blue-600 px-5 py-2 rounded-xl text-xs font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/20">Hire Me</a>
+
+            <div class="flex items-center gap-5 ml-2">
+                <a href="https://github.com/Ratihmsh" target="_blank" class="text-3xl text-slate-400 hover:text-white transition-all duration-300 transform hover:scale-110">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/ratih-mar-atus-sholihah-8a08a1319" target="_blank" class="text-3xl text-slate-400 hover:text-blue-500 transition-all duration-300 transform hover:scale-110">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
         </div>
     </nav>
+
+    <style>
+        /* Link Default */
+        .nav-link {
+            position: relative;
+            padding: 4px 0;
+        }
+
+        /* Link Saat Aktif */
+        .nav-link.active {
+            color: #3b82f6 !important; /* Biru terang */
+        }
+
+        /* Garis Bawah (Underline) */
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; /* Jarak dari teks */
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #3b82f6;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+
+            const observerOptions = {
+                root: null,
+                // Deteksi akan aktif jika section berada di 40% area atas layar
+                rootMargin: '0px 0px -60% 0px',
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
 
     <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-28 lg:pt-20 relative overflow-hidden">
         <div class="absolute top-1/4 -left-20 w-96 h-96 bg-blue-600/10 blur-[120px] rounded-full"></div>
@@ -76,13 +144,19 @@
                     Membangun pengalaman digital yang bermakna melalui <span class="text-white font-semibold">Mobile Development</span> dan <span class="text-white font-semibold">UI/UX Design</span>.
                 </p>
 
-                <div class="flex flex-col sm:row items-center justify-center lg:justify-start gap-4">
-                    <a href="#projects" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-2xl font-bold transition-all duration-300 shadow-xl shadow-blue-500/20 transform hover:-translate-y-1 text-center">
-                        See My Projects
+                <div class="flex flex-row items-center justify-center lg:justify-start gap-6 w-full">
+                    <a href="Ratih-CV.pdf" download class="flex-1 sm:flex-none bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-2xl font-bold transition-all duration-300 shadow-xl shadow-blue-500/20 transform hover:-translate-y-1 text-center text-sm flex items-center justify-center gap-2">
+                        <i class="fas fa-download text-xs"></i> Download CV
                     </a>
-                    <a href="Ratih Mar'atus Sholihah-resume (6).pdf" download class="w-full sm:w-auto border border-blue-500/30 hover:bg-blue-500/10 text-blue-400 px-8 py-4 rounded-2xl font-bold transition-all duration-300 flex items-center justify-center gap-2 transform hover:-translate-y-1">
-                        <i class="fas fa-download text-sm"></i> Download CV
-                    </a>
+
+                    <!-- <div class="flex items-center gap-5 ml-2">
+                        <a href="https://github.com/Ratihmsh" target="_blank" class="text-4xl text-slate-400 hover:text-white transition-all duration-300 transform hover:scale-110">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ratih-mar-atus-sholihah-8a08a1319" target="_blank" class="text-4xl text-slate-400 hover:text-blue-500 transition-all duration-300 transform hover:scale-110">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -155,14 +229,14 @@
                     </div>
                 </div>
 
-                <div class="lg:col-span-7">
+                <div class="lg:col-span-7 space-y-8">
                     <div class="glass p-8 md:p-10 rounded-[2.5rem] border border-white/10 shadow-2xl relative overflow-hidden">
                         <div class="absolute -top-24 -right-24 w-64 h-64 bg-blue-500/10 blur-[80px] rounded-full"></div>
                         
-                        <div class="flex justify-between items-center mb-10">
+                        <div class="flex justify-between items-center">
                             <div>
-                                <h3 class="text-lg font-bold text-white">Skill Matrix</h3>
-                                <p class="text-[10px] text-slate-500 uppercase tracking-widest">Proficiency Level Based on Project Hours</p>
+                                <h3 class="text-xl font-bold text-white">Skill Matrix</h3>
+                                <!-- <p class="text-[10px] text-slate-500 uppercase tracking-widest">Proficiency Level Based on Project Hours</p> -->
                             </div>
                             <i class="fas fa-chart-bar text-slate-700 text-2xl"></i>
                         </div>
@@ -179,12 +253,12 @@
     <script>
         const ctx = document.getElementById('skillsChart').getContext('2d');
         
-        // Gradien Warna Blue
+        // Gradien Warna (Languages - Blue)
         const gradBlue = ctx.createLinearGradient(0, 0, 400, 0);
         gradBlue.addColorStop(0, '#3b82f6');
         gradBlue.addColorStop(1, '#60a5fa');
 
-        // Gradien Warna Indigo
+        // Gradien Warna (Frameworks & Tools - Indigo)
         const gradIndigo = ctx.createLinearGradient(0, 0, 400, 0);
         gradIndigo.addColorStop(0, '#6366f1');
         gradIndigo.addColorStop(1, '#818cf8');
@@ -193,18 +267,31 @@
             type: 'bar',
             data: {
                 labels: [
-                    'Flutter', 'Figma', 'Kotlin', 'Java', 'User Research', 
-                    'MySQL', 'Laravel', 'C++', 'Python'
+                    'Kotlin (Language)', 
+                    'PHP (Language)', 
+                    'JavaScript (Language)', 
+                    'Java (Language)', 
+                    'C (Language)', 
+                    'C++ (Language)', 
+                    'Python (Language)', 
+                    'MySQL (Database)',
+                    'Flutter (Framework)', 
+                    'Laravel (Framework)', 
+                    'Figma (Design Tools)', 
+                    'User Research'
                 ],
                 datasets: [{
-                    data: [95, 92, 85, 82, 88, 80, 78, 75, 70],
+                    // Sesuaikan persentase ini dengan keahlian aslimu
+                    data: [85, 88, 82, 80, 75, 78, 70, 80, 95, 84, 92, 88],
                     backgroundColor: [
-                        gradBlue, gradIndigo, gradBlue, gradBlue, gradIndigo, 
-                        gradBlue, gradBlue, '#10b981', '#10b981'
+                        // Languages & DB (Blue)
+                        gradBlue, gradBlue, gradBlue, gradBlue, gradBlue, gradBlue, gradBlue, gradBlue,
+                        // Frameworks & Tools (Indigo)
+                        gradIndigo, gradIndigo, gradIndigo, gradIndigo
                     ],
                     borderRadius: 25,
                     borderSkipped: false,
-                    barThickness: 15
+                    barThickness: 12
                 }]
             },
             options: {
@@ -216,8 +303,15 @@
                     tooltip: {
                         enabled: true,
                         backgroundColor: '#1e293b',
+                        titleFont: { size: 13, weight: 'bold' },
+                        bodyFont: { size: 12 },
                         padding: 12,
-                        bodyFont: { family: 'Plus Jakarta Sans', size: 12 }
+                        displayColors: false,
+                        callbacks: {
+                            label: function(context) {
+                                return ` Proficiency: ${context.parsed.x}%`;
+                            }
+                        }
                     }
                 },
                 scales: {
@@ -229,8 +323,15 @@
                     y: {
                         grid: { display: false },
                         ticks: { 
-                            color: '#f8fafc', 
-                            font: { family: 'Plus Jakarta Sans', size: 12, weight: '600' } 
+                            // Mewarnai teks label agar user tahu perbedaannya
+                            color: (context) => {
+                                return context.index <= 7 ? '#60a5fa' : '#818cf8';
+                            },
+                            font: { 
+                                family: 'Plus Jakarta Sans', 
+                                size: 11, 
+                                weight: '600' 
+                            } 
                         }
                     }
                 }
@@ -240,24 +341,121 @@
 
     <section id="projects" class="py-24 px-6 bg-[#0f172a]">
         <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-                <div>
-                    <h2 class="text-3xl md:text-4xl font-extrabold italic text-white mb-4">Featured <span class="text-blue-500">Projects.</span></h2>
-                </div>
+            <div class="mb-20">
+                <h2 class="text-3xl md:text-4xl font-extrabold italic tracking-tight text-white mb-4">
+                    Featured <span class="text-blue-500">Projects.</span>
+                </h2>
+                <div class="h-1 w-20 bg-blue-600 rounded-full"></div>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
+
+                <div class="group glass p-8 rounded-[2.5rem] border border-white/5 hover:border-rose-500/50 transition-all duration-500 cursor-pointer" onclick="openProject('loveLanguage')">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-14 h-14 bg-rose-500/10 rounded-2xl flex items-center justify-center text-rose-400 group-hover:bg-rose-600 group-hover:text-white transition-all duration-500">
+                            <i class="fas fa-heart text-2xl"></i>
+                        </div>
+                        <span class="text-[10px] font-bold text-slate-500 group-hover:text-rose-400 transition">2025 • WEB APP & PSYCHOLOGY</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:translate-x-2 transition-transform">LOVE LANGUAGE: Test App</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-6 line-clamp-4">
+                        Platform penilaian kepribadian interaktif untuk membantu pengguna memahami bahasa kasih melalui pengalaman Single Page Application (SPA) yang responsif dan intuitif.
+                    </p>
+                    <div class="flex items-center text-rose-400 text-[10px] font-bold uppercase tracking-widest gap-2">
+                        Explore Details <i class="fas fa-arrow-right animate-pulse"></i>
+                    </div>
+                </div>
+
+                <div class="group glass p-8 rounded-[2.5rem] border border-white/5 hover:border-violet-500/50 transition-all duration-500 cursor-pointer" onclick="openProject('nilaiSiswa')">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-14 h-14 bg-violet-500/10 rounded-2xl flex items-center justify-center text-violet-400 group-hover:bg-violet-600 group-hover:text-white transition-all duration-500">
+                            <i class="fas fa-chart-line text-2xl"></i>
+                        </div>
+                        <span class="text-[10px] font-bold text-slate-500 group-hover:text-violet-400 transition">2025 • DATA SCIENCE & DSS</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:translate-x-2 transition-transform">NILAI SISWA KITA: Analytics</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-6 line-clamp-4">
+                        Platform analisis akademik menggunakan algoritma SES untuk peramalan nilai dan metode SAW untuk penentuan peringkat siswa terbaik secara objektif berdasarkan multi-kriteria.
+                    </p>
+                    <div class="flex items-center text-violet-400 text-[10px] font-bold uppercase tracking-widest gap-2">
+                        Explore Details <i class="fas fa-arrow-right animate-pulse"></i>
+                    </div>
+                </div>
+
+                <div class="group glass p-8 rounded-[2.5rem] border border-white/5 hover:border-rose-500/50 transition-all duration-500 cursor-pointer" onclick="openProject('portfolio')">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-14 h-14 bg-rose-500/10 rounded-2xl flex items-center justify-center text-rose-400 group-hover:bg-rose-600 group-hover:text-white transition-all duration-500">
+                            <i class="fas fa-user-astronaut text-2xl"></i>
+                        </div>
+                        <span class="text-[10px] font-bold text-slate-500 group-hover:text-rose-400 transition">2025 • FRONT-END DEV</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:translate-x-2 transition-transform">Ratih's Portofolio</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-6 line-clamp-4">
+                        Website portofolio interaktif dengan konsep Modern Glassmorphism. Fokus pada penyajian data proyek secara dinamis dan pengalaman pengguna yang seamless.
+                    </p>
+                    <div class="flex items-center text-rose-400 text-[10px] font-bold uppercase tracking-widest gap-2">
+                        Explore Details <i class="fas fa-arrow-right animate-pulse"></i>
+                    </div>
+                </div>
                 
+                <div class="group glass p-8 rounded-[2.5rem] border border-white/5 hover:border-blue-500/50 transition-all duration-500 cursor-pointer" onclick="openProject('biteworks')">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
+                            <i class="fas fa-chart-line text-2xl"></i>
+                        </div>
+                        <span class="text-[10px] font-bold text-slate-500 group-hover:text-blue-400 transition">2025 • FINTECH & HRIS</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:translate-x-2 transition-transform">BITEWORKS: Profit Distribution</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-6 line-clamp-4">
+                        Asisten keselamatan cerdas untuk pengendara motor. Menggunakan algoritma EMA untuk deteksi jatuh dan notifikasi darurat otomatis demi mendukung SDG's poin 9.
+                    </p>
+                    <div class="flex items-center text-blue-400 text-[10px] font-bold uppercase tracking-widest gap-2">
+                        Explore Details <i class="fas fa-arrow-right animate-pulse"></i>
+                    </div>
+                </div>
+
+                <div class="group glass p-8 rounded-[2.5rem] border border-white/5 hover:border-cyan-500/50 transition-all duration-500 cursor-pointer" onclick="openProject('safora')">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-14 h-14 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-400 group-hover:bg-cyan-600 group-hover:text-white transition-all duration-500">
+                            <i class="fas fa-microchip text-2xl"></i>
+                        </div>
+                        <span class="text-[10px] font-bold text-slate-500 group-hover:text-cyan-400 transition">2025 • IOT ENGINEER & MOBILE DEVELOPER</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:translate-x-2 transition-transform">SAFORA: Smart Assistance System</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-6 line-clamp-4">
+                        Asisten keselamatan cerdas untuk pengendara motor. Menggunakan algoritma EMA untuk deteksi jatuh dan notifikasi darurat otomatis demi mendukung SDG's poin 9.
+                    </p>
+                    <div class="flex items-center text-cyan-400 text-[10px] font-bold uppercase tracking-widest gap-2">
+                        Explore Details <i class="fas fa-arrow-right animate-pulse"></i>
+                    </div>
+                </div>
+
+                <div class="group glass p-8 rounded-[2.5rem] border border-white/5 hover:border-purple-500/50 transition-all duration-500 cursor-pointer" onclick="openProject('steps')">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-14 h-14 bg-purple-500/10 rounded-2xl flex items-center justify-center text-purple-400 group-hover:bg-purple-600 group-hover:text-white transition-all duration-500">
+                            <i class="fas fa-film text-2xl"></i>
+                        </div>
+                        <span class="text-[10px] font-bold text-slate-500 group-hover:text-purple-400 transition">2025 • MULTIMEDIA ANIMASI</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:translate-x-2 transition-transform">SPAKA & SPIKI: Sepatu kanan & Kiri</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-6 line-clamp-4">
+                        Edukasi moral melalui animasi pendek 3 episode. Mengisahkan tentang integritas dan kerja sama tim menggunakan metafora visual yang kreatif.
+                    </p>
+                    <div class="flex items-center text-purple-400 text-[10px] font-bold uppercase tracking-widest gap-2">
+                        Explore Details <i class="fas fa-arrow-right animate-pulse"></i>
+                    </div>
+                </div>
+
                 <div class="group glass p-8 rounded-[2.5rem] border border-white/5 hover:border-blue-500/50 transition-all duration-500 cursor-pointer" onclick="openProject('silab')">
                     <div class="flex justify-between items-start mb-8">
                         <div class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
-                            <i class="fas fa-microscope text-2xl"></i>
+                            <i class="fas fa-flask text-2xl"></i>
                         </div>
                         <span class="text-[10px] font-bold text-slate-500 group-hover:text-blue-400 transition">2025 • FULL STACK</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3 group-hover:translate-x-2 transition-transform">SILAB: Lab Digitalization</h3>
-                    <p class="text-slate-500 text-xs leading-relaxed mb-6 line-clamp-2">
-                        Mendigitalisasi manajemen lab akademik. Memangkas waktu pinjam alat dari 24 jam menjadi 1 jam.
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:translate-x-2 transition-transform">SILAB: Lab Modernization</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-6 line-clamp-4">
+                        Modernisasi ekosistem laboratorium Teaching Factory menggunakan Laravel 10 dan Flutter untuk manajemen inventaris serta penjadwalan praktikum.
                     </p>
                     <div class="flex items-center text-blue-400 text-[10px] font-bold uppercase tracking-widest gap-2">
                         Explore Details <i class="fas fa-arrow-right animate-pulse"></i>
@@ -271,9 +469,9 @@
                         </div>
                         <span class="text-[10px] font-bold text-slate-500 group-hover:text-indigo-400 transition">2024 • MOBILE DEV</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3 group-hover:translate-x-2 transition-transform">SNEAK-APP: POS System</h3>
-                    <p class="text-slate-500 text-xs leading-relaxed mb-6 line-clamp-2">
-                        Meningkatkan konversi penjualan UMKM sepatu hingga 35% melalui sistem manajemen stok real-time.
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:translate-x-2 transition-transform">SNEAK-APP: Point Of Sales</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-6 line-clamp-4">
+                        Digitalisasi industri sepatu lokal Mojokerto melalui aplikasi mobile terintegrasi Firebase untuk manajemen stok real-time.
                     </p>
                     <div class="flex items-center text-indigo-400 text-[10px] font-bold uppercase tracking-widest gap-2">
                         Explore Details <i class="fas fa-arrow-right animate-pulse"></i>
@@ -287,12 +485,28 @@
                         </div>
                         <span class="text-[10px] font-bold text-slate-500 group-hover:text-emerald-400 transition">2024 • DESKTOP</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3 group-hover:translate-x-2 transition-transform">SIRESTA: Admin Polresta</h3>
-                    <p class="text-slate-500 text-xs leading-relaxed mb-6 line-clamp-2">
-                        Otomatisasi surat menyurat Satlantas Sidoarjo. Mempercepat pencarian data dari 15 menit ke 30 detik.
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:translate-x-2 transition-transform">SIRESTA : Administrasi POLRESTA</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-6 line-clamp-4">
+                        Digitalisasi manajemen surat masuk & keluar Polresta Sidoarjo dengan sistem pengingat otomatis.
                     </p>
                     <div class="flex items-center text-emerald-400 text-[10px] font-bold uppercase tracking-widest gap-2">
                         Explore Details <i class="fas fa-arrow-right animate-pulse"></i>
+                    </div>
+                </div>
+
+                <div class="group glass p-8 rounded-[2.5rem] border border-white/5 hover:border-cyan-500/50 transition-all duration-500 cursor-pointer" onclick="openProject('myTech')">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-14 h-14 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-400 group-hover:bg-cyan-600 group-hover:text-white transition-all duration-500">
+                            <i class="fas fa-laptop-medical text-2xl"></i>
+                        </div>
+                        <span class="text-[10px] font-bold text-slate-500 group-hover:text-cyan-400 transition">2023 • DESKTOP APP</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:translate-x-2 transition-transform">MYTECH: Bookkeeping System</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-6 line-clamp-4">
+                        Solusi manajemen inventori dan keuangan toko elektronik berbasis Java Desktop. Mengotomatisasi siklus transaksi dari supplier hingga laporan laba rugi tahunan.
+                    </p>
+                    <div class="flex items-center text-cyan-400 text-[10px] font-bold uppercase tracking-widest gap-2">
+                        Explore System <i class="fas fa-arrow-right animate-pulse"></i>
                     </div>
                 </div>
 
@@ -302,153 +516,484 @@
 
     <div id="projectModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-6 lg:p-12">
         <div class="absolute inset-0 bg-slate-950/90 backdrop-blur-md" onclick="closeProject()"></div>
-        
         <div class="relative glass w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-[3rem] border border-white/10 shadow-2xl p-8 md:p-12">
             <button onclick="closeProject()" class="absolute top-8 right-8 text-slate-500 hover:text-white text-2xl transition">
                 <i class="fas fa-times"></i>
             </button>
-
-            <div id="modalContent">
-                </div>
+            <div id="modalContent"></div>
         </div>
     </div>
 
     <script>
         const projectData = {
+
+            loveLanguage: {
+                color: "rose",
+                type: "website",   
+                actionLabel: "View Live Site",
+                live: "https://ratihmsh.github.io/lovelanguage-test/",   
+                period : "November 2025", 
+                images: ["lovelanguage/Screenshot 2025-12-27 132041.png"],
+                title: "Love Language Test: Personality Assessment",
+                description: "Aplikasi web interaktif untuk mengidentifikasi bahasa kasih dominan pengguna melalui Single Page Application (SPA) berbasis JavaScript.",
+                problem: "Kurangnya pemahaman diri dalam hubungan serta kebutuhan akan alat tes psikologi yang cepat, ringan, dan dapat diakses langsung tanpa instalasi aplikasi rumit.",
+                stack: "HTML5, CSS3, JavaScript (Vanilla JS).",
+                features: [
+                    "Dynamic Question Loading (No Refresh)",
+                    "Interactive Assessment Interface",
+                    "Real-time Scoring Logic",
+                    "Responsive Mobile-First Design",
+                    "Automated Personality Interpretation"
+                ],
+                challenge: "Mengelola state management untuk urutan pertanyaan dan skor sementara serta memastikan manipulasi DOM berjalan mulus di berbagai ukuran layar.",
+                solution: "Menerapkan konsep Single Page Application sederhana yang memisahkan logika penilaian (JS) dari presentasi (CSS) untuk memastikan performa aplikasi yang cepat dan modular.",
+                link: "https://github.com/Ratihmsh/lovelanguage-test.git"
+            },
+            nilaiSiswa: {
+                color: "violet",
+                period : "September 2025 - Oktober 2025",
+                images: ["nilaisiswa/Screenshot 2025-12-27 131309.png","nilaisiswa/Screenshot 2025-12-27 131254.png"],
+                title: "Nilai Siswa Kita: DSS & Academic Analytics",
+                description: "Sistem Pendukung Keputusan (DSS) yang menggabungkan metode peramalan statistik SES dan perangkingan SAW untuk menganalisis performa akademik siswa secara objektif.",
+                problem: "Guru kesulitan memprediksi tren nilai siswa untuk intervensi dini serta adanya subjektivitas dalam penentuan siswa berprestasi yang hanya didasarkan pada nilai rata-rata tanpa pembobotan kriteria lain.",
+                stack: "Vanilla JS, Chart.js, XLSX.js, CSS3.",
+                features: [
+                    "Forecasting Nilai dengan Single Exponential Smoothing (SES)",
+                    "Decision Support System menggunakan Simple Additive Weighting (SAW)",
+                    "Integrasi Data Excel via XLSX.js",
+                    "Visualisasi Tren Nilai Interaktif dengan Chart.js",
+                    "Analisis Akurasi Peramalan (MAE, MSE, MAPE)"
+                ],
+                challenge: "Sinkronisasi struktur data Excel yang tidak seragam serta normalisasi kriteria (benefit vs cost) pada algoritma SAW agar hasil perangkingan akurat secara matematis di sisi klien.",
+                solution: "Mengimplementasikan normalisasi data ke skala 0-1 sebelum perhitungan preferensi akhir dan menggunakan smoothing constant (alpha) yang dinamis untuk meningkatkan akurasi peramalan.",
+                link: "https://github.com/Ratihmsh/Siswa-Kita.git"
+            },
+            portfolio: {
+                color: "rose",
+                type: "website",   
+                actionLabel: "Visit Live Site",
+                live: "https://ratihmsh.github.io/myportofolio/",
+                period : "Desember 2024 - Sekarang",
+                images: ["portfolio/Screenshot 2025-12-27 130420.png"], // Ganti dengan screenshot web ini
+                title: "Personal Branding & Portfolio Website",
+                description: "Pengembangan platform portofolio interaktif dengan desain modern 'Glassmorphism' untuk mempresentasikan kapabilitas teknis dan rekam jejak profesional secara visual.",
+                problem: "Kebutuhan akan wadah digital yang tidak hanya statis, tetapi mampu memberikan pengalaman eksplorasi proyek yang interaktif dan responsif di berbagai perangkat.",
+                stack: "HTML5, Tailwind CSS, JavaScript (ES6+), FontAwesome, Lucide Icons.",
+                features: [
+                    "Interactive Project Modal System",
+                    "Glassmorphism UI Design",
+                    "Responsive Dynamic Layout",
+                    "Auto-playing Project Showcase",
+                    "Optimized Performance & SEO Ready"
+                ],
+                challenge: "Membangun sistem modal dinamis yang ringan tanpa menggunakan framework berat, serta menjaga estetika visual tetap bersih namun tetap fungsional.",
+                solution: "Mengoptimalkan JavaScript DOM manipulation untuk handling data proyek dan menggunakan utility-first CSS dari Tailwind untuk desain yang presisi.",
+                link: "https://github.com/Ratihmsh/myportofolio.git"
+            },
+
+            biteworks: {
+                color: "blue",
+                type: "website",   
+                actionLabel: "Visit Live Site",
+                live: "https://ratihmsh.github.io/Biteworks-DistribusiProfit/",
+                period : "Oktober 2025 - Desember 2025",
+                images: ["biteworks/Screenshot 2025-12-27 124727.png"],
+                title: "BITEWORKS: Human Resources Profit Distribution System",
+                description: "Platform otomatisasi keuangan untuk mengelola distribusi laba bersih dan insentif karyawan secara transparan berdasarkan performa kehadiran dan operasional.",
+                problem: "Ketidakakuratan alokasi dana cadangan dan kerumitan perhitungan insentif manual yang sering menyebabkan ketidakseimbangan (unbalance) antara pendapatan harian dengan distribusi bulanan.",
+                stack: "React.js/Next.js, Tailwind CSS, JavaScript, SheetJS.",
+                features: [
+                    "Auto-Allocation (40% SDM, 20% Kas, 40% Prodi)",
+                    "Jurnal Pendapatan & Jam Operasional Harian",
+                    "Log Absensi Integrasi untuk Insentif Proporsional",
+                    "Real-time Financial Reconciliation (Balance System)",
+                    "Export Laporan Otomatis ke Format .xlsx"
+                ],
+                challenge: "Mengelola logika perhitungan distribusi dengan presisi desimal tinggi dan sinkronisasi data absensi terhadap pendapatan harian secara real-time.",
+                solution: "Membangun sistem akuntansi internal terintegrasi dengan kalkulasi otomatis untuk meminimalisir human error dan dashboard rekonsiliasi instan.",
+                link: "https://github.com/Ratihmsh/Biteworks-DistribusiProfit.git"
+            },
+            safora: {
+                color: "cyan",
+                type: "github",
+                actionLabel: "Source Code Mobile App",
+                live: "https://github.com/Ratihmsh/safora_mobile.git",
+                period : "Juni 2025 - Oktober 2025",
+                images: ["safora/Screenshot 2025-12-27 122323.png", "safora/Screenshot 2025-12-27 122348.png", "safora/Screenshot 2025-12-27 122404.png", "safora/Screenshot 2025-12-27 122421.png", "safora/WhatsApp Image 2025-12-22 at 14.46.34.jpeg","safora/Screenshot 2025-12-27 122501.png"],
+                title: "SAFORA: Smart Assistance for Motorcycle Safety",
+                description: "Sistem cerdas berbasis IoT dan AI untuk menekan angka kecelakaan motor melalui deteksi jatuh otomatis dan peringatan dini real-time.",
+                problem: "Tingginya angka fatalitas kecelakaan motor akibat keterlambatan penanganan darurat dan kurangnya sistem monitoring keselamatan pada kendaraan roda dua.",
+                stack: "C++, Python, EMA Algorithm, Rule-Based System, IoT.",
+                features: [
+                    "Automatic Fall Detection System",
+                    "Real-time GPS Emergency Tracking",
+                    "Predictive Maintenance Alert",
+                    "Intelligent Speed Monitoring"
+                ],
+                challenge: "Mereduksi noise data sensor akselerometer saat berkendara untuk menghindari deteksi jatuh palsu (false positive).",
+                solution: "Mengintegrasikan algoritma Exponential Moving Average (EMA) untuk stabilisasi data sensor dan sistem pakar berbasis aturan untuk akurasi deteksi.",
+                link: ["https://github.com/ferdisaputro/safora.git"]
+            },
+            steps: {
+                color: "purple",
+                type: "youtube",
+                actionLabel: "Watch on YouTube",
+                live: "https://www.youtube.com/watch?v=nFdnXFeEcWI",
+                period : "November 2025 - Desember 2025",
+                images: ["steps/Screenshot 2025-12-27 121455.png"],
+                title: "SPAKA & SPIKI: Animasi Pendek Edukasi Moral",
+                description: "Proyek storytelling multimedia yang menggunakan animasi karakter alas kaki untuk mengedukasi tentang pentingnya integrasi dan bahaya hasutan.",
+                problem: "Menyampaikan pesan moral yang kompleks melalui media animasi sederhana tanpa dialog karakter langsung, namun tetap menyentuh sisi emosional penonton.",
+                stack: "Scratch, Storyboard Pro, Video Editor, YouTube, Multimedia Tools.",
+                features: [
+                    "3-Part Storytelling Episodes",
+                    "Character Rule-Based Animation",
+                    "Narrative-Driven Conflict Resolution",
+                    "Visual Atmosphere Grading (Mood Setting)"
+                ],
+                challenge: "Menghidupkan objek mati (sepatu) agar memiliki kepribadian yang kontras dan memastikan alur pesan tersampaikan dalam durasi singkat.",
+                solution: "Mengimplementasikan sistem aturan pergerakan khusus (Rules Karakter) dan memanfaatkan narasi suara (voiceover) sebagai penggerak utama cerita.",
+                link: "https://github.com/Ratihmsh/SPAKA-SPIKI.git"
+            },
             silab: {
-                title: "SILAB: Lab Information System",
-                problem: "Sistem peminjaman alat lab di Politeknik Negeri Jember yang masih manual sering menyebabkan antrean panjang dan risiko kehilangan data. Mahasiswa harus menunggu hingga 24 jam untuk verifikasi.",
-                stack: "Flutter, Laravel (API), MySQL, Firebase Cloud Messaging.",
-                features: "Real-time Notification, QR Code Scanning, Admin Dashboard, Digital Inventory.",
-                challenge: "Menghubungkan data inventaris fisik dengan sistem database agar sinkron secara real-time.",
-                solution: "Implementasi FCM untuk notifikasi instan kepada teknisi lab saat ada pengajuan baru.",
-                link: "https://github.com/Ratihmsh"
+                color: "blue",
+                type: "web",
+                actionLabel: "Visit Live Site",
+                live: "https://silab-polije.com",
+                period : "Februari 2025 - Mei 2025",
+                images: [
+                    "silab/Screenshot 2025-12-27 112147.png",
+                    "silab/Screenshot 2025-12-27 112209.png",
+                    "silab/Screenshot 2025-12-27 112246.png",
+                    "silab/Screenshot 2025-12-27 112328.png",
+                    "silab/Screenshot 2025-12-27 112351.png",
+                    "silab/Screenshot 2025-12-27 112429.png",
+                    "silab/Screenshot 2025-12-27 112452.png",
+                    "silab/Screenshot 2025-12-27 112513.png",
+                    "silab/Screenshot 2025-12-27 112542.png",
+                    "silab/Screenshot 2025-12-27 112606.png",
+                    "silab/Screenshot 2025-12-27 112640.png",
+                    "silab/Screenshot 2025-12-27 112703.png",
+                    "silab/Screenshot 2025-12-27 112719.png",
+                    "silab/Screenshot 2025-12-27 112731.png",
+                    "silab/Screenshot 2025-12-27 112807.png",
+                    "silab/Screenshot 2025-12-27 112817.png",
+                    "silab/Screenshot 2025-12-27 112827.png",
+                    "silab/Screenshot 2025-12-27 112837.png",
+                    "silab/Screenshot 2025-12-27 112849.png",
+                    "silab/Screenshot 2025-12-27 112901.png",
+                    "silab/Screenshot 2025-12-27 112910.png",
+                    "silab/Screenshot 2025-12-27 111611.png", 
+                    "silab/Screenshot 2025-12-27 111635.png"
+                ],
+                title: "SILAB: Modernisasi Sistem Informasi Laboratorium",
+                description: "Digitalisasi manajemen operasional laboratorium melalui migrasi framework web dan integrasi aplikasi mobile untuk meningkatkan efisiensi layanan akademik.",
+                problem: "Sistem lama (Laravel 7) membutuhkan pembaruan keamanan dan performa, serta keterbatasan aksesibilitas bagi pengguna dengan mobilitas tinggi.",
+                stack: "Laravel 10, Tailwind CSS, Livewire, Flutter (Mobile), MySQL.",
+                features: [
+                    "Manajemen Inventaris Alat & Bahan",
+                    "Sistem Peminjaman Alat & Izin Lab (LBS)",
+                    "Pengaturan Jadwal Akademik & Praktikum",
+                    "Penggantian Jadwal Otomatis",
+                    "Monitoring Real-time via Mobile App"
+                ],
+                challenge: "Melakukan migrasi sistem dari versi lama ke Laravel 10 tanpa merusak fungsionalitas yang ada.",
+                solution: "Melakukan migrasi bertahap dengan uji regresi, mengimplementasikan Laravel Breeze, dan membangun arsitektur API JSON.",
+                link: "https://github.com/ferdisaputro/silab.git"
             },
             sneak: {
-                title: "SNEAK-APP: Point Of Sale",
-                problem: "UMKM Sneak Crafters kesulitan mengelola stok dan laporan keuangan bulanan secara manual, menyebabkan ketidakpastian profit.",
-                stack: "Kotlin (Android Native), Room Database, Retrofit.",
-                features: "Stock Management, Automatic Financial Report, Transaction History.",
-                challenge: "Memastikan aplikasi dapat berjalan offline namun data tetap konsisten.",
-                solution: "Menggunakan Room Database sebagai local storage dengan sinkronisasi periodik ke cloud.",
-                link: "https://github.com/Ratihmsh"
+                color: "indigo",
+                period : "September 2024 - Januari 2025",
+                images: ["sneak/Screenshot 2025-12-27 105235.png", "sneak/Screenshot 2025-12-27 105309.png", "sneak/Screenshot 2025-12-27 110902.png"],  
+                title: "SNEAK-APP: POS System untuk Industri Sepatu",
+                problem: "Industri rumahan sepatu di Mojokerto kesulitan memperluas jangkauan pasar dan menonjolkan nilai seni produk handmade.",
+                stack: "Java (Android Studio), XML, Firebase, HTML/CSS.",
+                features: ["Custom Order Catalog", "Shopping Cart", "Production Portfolio Gallery", "Real-time Order Tracking"],
+                challenge: "Mengintegrasikan sistem katalog produk yang dinamis dengan profil perusahaan berbasis web.",
+                solution: "Membangun ekosistem digital terpadu yang menggabungkan aplikasi mobile dan website profil edukasi.",
+                link: "https://github.com/Ratihmsh/Sneak-App.git"
             },
             siresta: {
-                title: "SIRESTA: Polresta Sidoarjo",
-                problem: "Pencarian berkas surat menyurat di Satlantas Polresta Sidoarjo memakan waktu hingga 15 menit per berkas karena arsip fisik yang menumpuk.",
-                stack: "Java Desktop, MySQL, JasperReports.",
-                features: "Automated Letter Generation, Rapid Database Search, PDF Export.",
-                challenge: "Mengonversi format surat resmi kepolisian yang kaku ke dalam template digital otomatis.",
-                solution: "Membuat template mesin berbasis JasperReports untuk mencetak surat otomatis hanya dengan input data singkat.",
-                link: "https://github.com/Ratihmsh"
+                color: "emerald",
+                period : "Februari 2024 - September 2024",
+                images: [
+                    "siresta/Screenshot 2025-12-27 102459.png", 
+                    "siresta/Screenshot 2025-12-27 102526.png", 
+                    "siresta/Screenshot 2025-12-27 102548.png", 
+                    "siresta/Screenshot 2025-12-27 102622.png", 
+                    "siresta/Screenshot 2025-12-27 102644.png", 
+                    "siresta/Screenshot 2025-12-27 102704.png", 
+                    "siresta/Screenshot 2025-12-27 102722.png"
+                ],   
+                title: "SIRESTA: Sistem Surat Elektronik Polresta Desktop",
+                description: "Aplikasi manajemen surat-menyurat digital untuk mengoptimalkan pengelolaan surat masuk, surat keluar, di Satlantas Polresta Sidoarjo.",
+                problem: "Manajemen dokumen fisik yang kompleks meningkatkan risiko kehilangan data dan keterlambatan tindak lanjut surat penting.",
+                stack: "Java (NetBeans), MySQL (XAMPP), JasperReports, Figma.",
+                features: [
+                    "Manajemen Digital Surat Masuk & Keluar",
+                    "Sistem Notifikasi Pengingat Kegiatan",
+                    "Integrasi Aktivitas Email",
+                    "Penyimpanan Dokumen Digital Terpusat",
+                    "Manajemen Profil Anggota & Hak Akses"
+                ],
+                challenge: "Sinkronisasi sistem notifikasi real-time agar pengingat muncul tepat waktu sesuai jadwal.",
+                solution: "Mengembangkan sistem otomasi menggunakan JasperReports dan fitur reminder otomatis berbasis waktu sistem.",
+                link: "https://github.com/Ratihmsh/SIRESTAA.git"
+            },
+            myTech: {
+                color: "cyan",
+                period : "September 2023 - Desember 2023",   
+                images: ["myTech/Login.png", "myTech/Home.png", "myTech/Data Master Barang.png", "myTech/Data Master Admin.png", "myTech/Data Master Supplier.png", "myTech/Data Master Kategori.png", "myTech/Transaksi Pembelian.png", "myTech/Transaksi Penjualan.png", "myTech/Report.png"],   
+                title: "MYTECH: Toko Elektronik Bookkeeping System",
+                description: "Aplikasi desktop terintegrasi untuk otomatisasi pembukuan, manajemen stok real-time, dan pelaporan keuangan akurat pada bisnis ritel elektronik.",
+                problem: "Ketidakakuratan pencatatan manual yang menghambat ekspansi bisnis, serta sulitnya memantau stok barang yang dinamis dan perilaku pembelian pelanggan secara objektif.",
+                stack: "Java (Swing/AWT), MySQL, Figma.",
+                features: [
+                    "Manajemen Data Master (Barang, Supplier, Karyawan)",
+                    "Transaksi Penjualan dengan Fitur Diskon & Promo",
+                    "Pemantauan Inventaris/Stok Real-time",
+                    "Laporan Laba Rugi & Grafik Pendapatan",
+                    "Ekspor Data ke Format Excel & JasperReports"
+                ],
+                challenge: "Mengintegrasikan sistem penjualan dengan pembukuan otomatis untuk meminimalkan human error serta menjamin keamanan data melalui manajemen akses pengguna (Role-Based).",
+                solution: "Mengembangkan sistem terpusat berbasis Java yang mengintegrasikan fungsi operasional ke dalam tiga modul utama (Master, Transaksi, Laporan) dengan database MySQL yang terorganisir.",
+                link: "https://github.com/ferdisaputro/project_akhir_semester"
             }
         };
 
+        let autoScrollInterval;
+
         function openProject(id) {
             const data = projectData[id];
+            if (!data) return;
+
             const modal = document.getElementById('projectModal');
             const content = document.getElementById('modalContent');
+            const color = data.color || 'blue';
             
+            const imagesArray = Array.isArray(data.images) ? data.images : [data.image || 'placeholder.png'];
+
+            const actionIcon = data.type === 'web' ? 'fa-external-link-alt' : 
+                   data.type === 'mobile' ? 'fa-download' : 'fa-laptop-code';
+
             content.innerHTML = `
-                <div class="grid lg:grid-cols-2 gap-12">
-                    <div>
-                        <h2 class="text-3xl font-bold text-white mb-6">${data.title}</h2>
-                        <div class="space-y-6">
-                            <div>
-                                <h4 class="text-blue-400 font-bold text-xs uppercase tracking-widest mb-2 italic">Problem & Context</h4>
-                                <p class="text-slate-400 text-sm leading-relaxed">${data.problem}</p>
-                            </div>
-                            <div>
-                                <h4 class="text-blue-400 font-bold text-xs uppercase tracking-widest mb-2 italic">Tech Stack</h4>
-                                <p class="text-white font-mono text-sm">${data.stack}</p>
-                            </div>
-                            <div class="flex gap-4 pt-6">
-                                <a href="${data.link}" class="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold text-sm">View GitHub</a>
-                                <a href="#" class="border border-white/10 text-white px-6 py-3 rounded-xl font-bold text-sm">Live Demo</a>
-                            </div>
+                <div class="flex flex-col gap-8">
+                    <div class="border-b border-white/5 pb-6">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+                            <h2 class="text-3xl md:text-4xl font-black text-white leading-tight">${data.title}</h2>
+                            <span class="px-4 py-2 bg-${color}-500/10 border border-${color}-500/20 text-${color}-400 rounded-full text-[10px] font-bold tracking-[0.2em] whitespace-nowrap self-start uppercase">
+                                ${data.period}
+                            </span>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mt-2">
+                            ${data.stack.split(',').map(tech => `<span class="px-3 py-1 bg-white/5 rounded-lg text-[10px] text-slate-400 font-mono">${tech.trim()}</span>`).join('')}
                         </div>
                     </div>
-                    <div class="space-y-6 p-8 bg-white/5 rounded-[2rem]">
-                        <div>
-                            <h4 class="text-indigo-400 font-bold text-xs uppercase tracking-widest mb-2">Key Features</h4>
-                            <p class="text-slate-300 text-sm italic">${data.features}</p>
+
+                   <div class="relative group/slider w-full h-auto overflow-hidden border border-white/10 bg-slate-900 shadow-2xl">
+                        <div id="projectSlider" class="flex w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth">
+                            ${imagesArray.map(img => `
+                                <div class="min-w-full snap-center flex justify-center items-center">
+                                    <img src="${img}" class="w-full h-auto block" alt="Project Screenshot">
+                                </div>
+                            `).join('')}
                         </div>
-                        <hr class="border-white/5">
-                        <div>
-                            <h4 class="text-emerald-400 font-bold text-xs uppercase tracking-widest mb-2">Technical Challenge</h4>
-                            <p class="text-slate-400 text-sm">${data.challenge}</p>
+                    </div>
+
+                    <div class="flex flex-col gap-8">
+                        <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                            ${data.live ? `
+                                <a href="${data.live}" target="_blank" 
+                                class="flex-[2] text-center bg-${color}-600 hover:bg-${color}-700 text-white px-6 py-4 rounded-2xl font-bold text-xs uppercase tracking-widest transition shadow-lg shadow-${color}-600/20">
+                                    <i class="fas ${actionIcon} mr-2"></i> ${data.actionLabel || 'View Project'}
+                                </a>
+                            ` : ''}
+                            
+                            <a href="${data.link}" target="_blank" 
+                            class="${data.live ? 'flex-1' : 'w-full'} text-center bg-white/5 hover:bg-white/10 text-white border border-white/10 px-6 py-4 rounded-2xl font-bold text-xs uppercase tracking-widest transition">
+                                <i class="fab fa-github mr-2"></i> Source Code
+                            </a>
                         </div>
-                        <div>
-                            <h4 class="text-emerald-400 font-bold text-xs uppercase tracking-widest mb-2 text-emerald-300 italic">The Solution</h4>
-                            <p class="text-slate-400 text-sm">${data.solution}</p>
+                    </div>
+
+                    <div class="grid lg:grid-cols-2 gap-12">
+                        <div class="space-y-8">
+                            <div>
+                                <h4 class="text-${color}-400 font-bold text-xs uppercase tracking-widest mb-3 flex items-center gap-2">
+                                    <i class="fas fa-exclamation-circle text-[10px]"></i> Problem & Context
+                                </h4>
+                                <p class="text-slate-300 text-sm leading-relaxed">${data.problem}</p>
+                            </div>
+                            <div>
+                                <h4 class="text-${color}-400 font-bold text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
+                                    <i class="fas fa-star text-[10px]"></i> Key Features
+                                </h4>
+                                <ul class="grid grid-cols-1 gap-3">
+                                    ${Array.isArray(data.features) 
+                                        ? data.features.map(f => `<li class="flex items-start gap-3 text-slate-400 text-sm"><i class="fas fa-check-circle text-${color}-500 mt-1"></i> ${f}</li>`).join('')
+                                        : `<li class="flex items-start gap-3 text-slate-400 text-sm"><i class="fas fa-check-circle text-${color}-500 mt-1"></i> ${data.features}</li>`
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="space-y-8 bg-white/5 p-8 rounded-[2.5rem] border border-white/5">
+                            <div>
+                                <h4 class="text-${color}-400 font-bold text-xs uppercase tracking-widest mb-3">Technical Challenge</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-6">${data.challenge}</p>
+                                <div class="p-5 bg-${color}-500/5 border border-${color}-500/10 rounded-2xl">
+                                    <h4 class="text-${color}-300 font-bold text-[10px] uppercase tracking-widest mb-2 italic">The Solution</h4>
+                                    <p class="text-slate-300 text-sm leading-relaxed">${data.solution}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             `;
             
             modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // Stop scrolling
+            document.body.style.overflow = 'hidden';
+            setTimeout(startAutoScroll, 500); 
         }
 
         function closeProject() {
             const modal = document.getElementById('projectModal');
             modal.classList.add('hidden');
-            document.body.style.overflow = 'auto'; // Re-enable scrolling
+            document.body.style.overflow = 'auto';
+            clearInterval(autoScrollInterval);
+        }
+
+        function startAutoScroll() {
+            const slider = document.getElementById('projectSlider');
+            if (!slider) return;
+            clearInterval(autoScrollInterval);
+            autoScrollInterval = setInterval(() => {
+                const maxScroll = slider.scrollWidth - slider.clientWidth;
+                if (slider.scrollLeft >= maxScroll - 5) {
+                    slider.scrollLeft = 0;
+                } else {
+                    slider.scrollLeft += slider.clientWidth;
+                }
+            }, 3000);
+        }
+
+        function moveSlider(direction) {
+            const slider = document.getElementById('projectSlider');
+            if (!slider) return;
+            clearInterval(autoScrollInterval);
+            if (direction === 'left') {
+                slider.scrollLeft -= slider.clientWidth;
+            } else {
+                slider.scrollLeft += slider.clientWidth;
+            }
+            startAutoScroll();
         }
     </script>
 
-    <section id="experience" class="py-24 px-6 bg-slate-900/50">
+    <section id="journey" class="py-24 px-6 bg-[#0f172a] relative">
         <div class="max-w-6xl mx-auto">
             <div class="mb-16">
-                <h2 class="text-3xl md:text-4xl font-extrabold italic text-white mb-4">
-                    Professional <span class="text-blue-500">Development.</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold italic tracking-tight text-white mb-4">
+                    My <span class="text-blue-500">Journey.</span>
                 </h2>
-                <p class="text-slate-500 max-w-2xl font-light">
-                    Sertifikasi dan pelatihan intensif yang telah saya selesaikan untuk memperdalam kompetensi di bidang Mobile Development, UI/UX, dan Communication Skills.
-                </p>
+                <div class="h-1 w-20 bg-blue-600 rounded-full"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="flex justify-center mb-16">
+                <div class="inline-flex bg-white/5 p-1.5 rounded-2xl border border-white/10 backdrop-blur-xl shadow-2xl">
+                    <button onclick="switchTab('experience')" id="btn-experience" class="tab-btn active-tab px-8 py-3 rounded-xl text-xs font-bold uppercase tracking-widest transition-all duration-300">Experience</button>
+                    <button onclick="switchTab('education')" id="btn-education" class="tab-btn px-8 py-3 rounded-xl text-xs font-bold text-slate-400 hover:text-white uppercase tracking-widest transition-all duration-300">Education</button>
+                    <button onclick="switchTab('certifications')" id="btn-certifications" class="tab-btn px-8 py-3 rounded-xl text-xs font-bold text-slate-400 hover:text-white uppercase tracking-widest transition-all duration-300">Certifications</button>
+                </div>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
                 
-                <div class="group relative glass p-4 rounded-[2rem] border border-white/5 hover:border-blue-500/30 transition-all duration-500">
-                    <div class="relative overflow-hidden rounded-2xl aspect-[4/3] mb-6">
-                        <img src="sertifikat-komunikasi.jpg" alt="Pelatihan Komunikasi Polije" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                        <div class="absolute inset-0 bg-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
-                            <i class="fas fa-search-plus text-white text-3xl"></i>
+                <div id="tab-experience" class="tab-content space-y-8">
+                    <div class="glass p-8 rounded-[2.5rem] border border-white/10 shadow-xl relative overflow-hidden group">
+                        <div class="absolute -right-10 -top-10 w-32 h-32 bg-blue-500/5 blur-3xl group-hover:bg-blue-500/10 transition-all"></div>
+                        
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all shrink-0">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex flex-col md:flex-row justify-between mb-2">
+                                    <h3 class="text-xl font-bold text-white">Internship Mobile Developer</h3>
+                                    <span class="text-[10px] font-bold text-blue-400 uppercase tracking-[0.2em] self-start mt-1 md:mt-0">2024 - Present</span>
+                                </div>
+                                <p class="text-slate-500 text-[10px] uppercase tracking-widest mb-4 font-semibold">Nama Instansi / Perusahaan</p>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-6">Mengembangkan aplikasi mobile menggunakan Flutter dan mengintegrasikan API Laravel untuk optimasi sistem manajemen data.</p>
+                                <div class="flex gap-3">
+                                    <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-lg text-[10px] text-slate-400 font-mono">Flutter</span>
+                                    <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-lg text-[10px] text-slate-400 font-mono">REST API</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="px-2 pb-2">
-                        <span class="text-blue-400 text-[10px] font-bold uppercase tracking-widest">Politeknik Negeri Jember</span>
-                        <h3 class="text-white font-bold mt-1 group-hover:text-blue-400 transition">Pelatihan Komunikasi Efektif</h3>
-                        <p class="text-slate-500 text-xs mt-2 italic">Fokus: Public Speaking & Profesionalisme</p>
+
+                    <div class="glass p-8 rounded-[2.5rem] border border-white/10 shadow-xl relative overflow-hidden group">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-all shrink-0">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex flex-col md:flex-row justify-between mb-2">
+                                    <h3 class="text-xl font-bold text-white">Juara 1 Lomba Teknologi</h3>
+                                    <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-[0.2em] self-start mt-1 md:mt-0">2023</span>
+                                </div>
+                                <p class="text-slate-500 text-[10px] uppercase tracking-widest mb-4 font-semibold">Penyelenggara Kompetisi</p>
+                                <p class="text-slate-400 text-sm leading-relaxed">Merancang solusi IoT berbasis ESP32 untuk sistem monitoring lingkungan yang terintegrasi dengan dashboard mobile.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="group relative glass p-4 rounded-[2rem] border border-white/5 hover:border-indigo-500/30 transition-all duration-500">
-                    <div class="relative overflow-hidden rounded-2xl aspect-[4/3] mb-6">
-                        <img src="sertifikat-flutter.jpg" alt="Flutter Bootcamp" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                        <div class="absolute inset-0 bg-indigo-600/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <i class="fas fa-search-plus text-white text-3xl"></i>
+                <div id="tab-education" class="tab-content hidden">
+                    <div class="glass p-8 md:p-12 rounded-[2.5rem] border border-white/10 shadow-2xl relative overflow-hidden">
+                        <div class="absolute -top-24 -right-24 w-64 h-64 bg-blue-500/10 blur-[80px] rounded-full"></div>
+                        
+                        <div class="flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left">
+                            <div class="w-20 h-20 rounded-[2rem] bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center text-white text-3xl shadow-lg shadow-blue-500/20">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-2xl font-bold text-white mb-2">Politeknik Negeri Jember</h3>
+                                <p class="text-blue-400 font-bold text-sm uppercase tracking-widest mb-6">D4 Teknik Informatika (2021 - 2025)</p>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="bg-white/5 p-4 rounded-2xl border border-white/5">
+                                        <p class="text-slate-500 text-[10px] uppercase mb-1">Academic Performance</p>
+                                        <p class="text-white font-bold">GPA 3.97 / 4.00</p>
+                                    </div>
+                                    <div class="bg-white/5 p-4 rounded-2xl border border-white/5">
+                                        <p class="text-slate-500 text-[10px] uppercase mb-1">Scholarship Status</p>
+                                        <p class="text-white font-bold">Awardee Beasiswa U-GO</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="px-2 pb-2">
-                        <span class="text-indigo-400 text-[10px] font-bold uppercase tracking-widest">Bootcamp Tech</span>
-                        <h3 class="text-white font-bold mt-1 group-hover:text-indigo-400 transition">Mobile Development (Flutter)</h3>
-                        <p class="text-slate-500 text-xs mt-2 italic">Fokus: State Management & API Integration</p>
                     </div>
                 </div>
 
-                <div class="group relative glass p-4 rounded-[2rem] border border-white/5 hover:border-emerald-500/30 transition-all duration-500">
-                    <div class="relative overflow-hidden rounded-2xl aspect-[4/3] mb-6">
-                        <img src="sertifikat-ux.jpg" alt="UI/UX Design" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                        <div class="absolute inset-0 bg-emerald-600/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <i class="fas fa-search-plus text-white text-3xl"></i>
+                <div id="tab-certifications" class="tab-content hidden grid md:grid-cols-2 gap-6">
+                    <div class="glass p-6 rounded-[2rem] border border-white/10 flex items-center gap-5 hover:bg-white/5 transition-all group">
+                        <div class="w-14 h-14 bg-indigo-500/10 rounded-2xl flex items-center justify-center text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-all shrink-0">
+                            <i class="fas fa-certificate text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm leading-tight mb-1">Flutter Mobile Bootcamp</h4>
+                            <p class="text-[9px] text-slate-500 uppercase tracking-[0.15em]">Udemy / TechCorp • 2024</p>
                         </div>
                     </div>
-                    <div class="px-2 pb-2">
-                        <span class="text-emerald-400 text-[10px] font-bold uppercase tracking-widest">Design Workshop</span>
-                        <h3 class="text-white font-bold mt-1 group-hover:text-emerald-400 transition">UI/UX Design Mastery</h3>
-                        <p class="text-slate-500 text-xs mt-2 italic">Fokus: Design Thinking & Prototyping</p>
+                    <div class="glass p-6 rounded-[2rem] border border-white/10 flex items-center gap-5 hover:bg-white/5 transition-all group">
+                        <div class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all shrink-0">
+                            <i class="fas fa-award text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm leading-tight mb-1">UI/UX Design Mastery</h4>
+                            <p class="text-[9px] text-slate-500 uppercase tracking-[0.15em]">Google UX Design • 2023</p>
+                        </div>
                     </div>
                 </div>
 
@@ -456,92 +1001,119 @@
         </div>
     </section>
 
+    <style>
+        .active-tab {
+            background: #2563eb !important; /* Blue-600 */
+            color: white !important;
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+        }
+        .tab-content {
+            animation: fadeIn 0.5s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
     <script>
-        // Kamu bisa menambahkan library Lightbox atau cukup logic sederhana
-        // untuk membuka gambar di tab baru saat diklik:
-        document.querySelectorAll('#experience img').forEach(img => {
-            img.parentElement.style.cursor = 'zoom-in';
-            img.parentElement.addEventListener('click', () => {
-                window.open(img.src, '_blank');
+        function switchTab(tabId) {
+            // Sembunyikan semua content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
             });
-        });
+            
+            // Hapus class aktif dari semua tombol
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active-tab');
+                btn.classList.add('text-slate-400');
+            });
+
+            // Tampilkan content yang dipilih
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
+            
+            // Aktifkan tombol yang diklik
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.add('active-tab');
+            activeBtn.classList.remove('text-slate-400');
+        }
     </script>
 
-<section id="research" class="py-24 bg-[#0f172a] px-6 relative overflow-hidden">
-    <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 blur-[100px] rounded-full"></div>
-    
-    <div class="max-w-5xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-extrabold italic text-white mb-4">Scientific <span class="text-blue-500">Publications.</span></h2>
-            <p class="text-slate-500 max-w-2xl mx-auto text-sm font-light">
-                Kontribusi dalam riset teknologi informasi yang telah dipublikasikan di jurnal nasional dan internasional sebagai bukti kedalaman analisis teknis.
-            </p>
-        </div>
+    <section id="research" class="py-24 bg-[#0f172a] px-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 blur-[100px] rounded-full"></div>
+        
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-16">
+                    <h2 class="text-3xl md:text-4xl font-extrabold italic tracking-tight text-white mb-4">
+                        Scientific <span class="text-blue-500">Publications.</span>
+                    </h2>
+                    <div class="h-1 w-20 bg-blue-600 rounded-full"></div>
+                </div>
 
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="group relative glass p-8 rounded-[2.5rem] border border-white/5 hover:border-blue-500/30 transition-all duration-500">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="bg-blue-500/10 p-4 rounded-2xl text-blue-400">
-                        <i class="fas fa-file-alt text-2xl"></i>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="group relative glass p-8 rounded-[2.5rem] border border-white/5 hover:border-blue-500/30 transition-all duration-500">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="bg-blue-500/10 p-4 rounded-2xl text-blue-400">
+                            <i class="fas fa-file-alt text-2xl"></i>
+                        </div>
+                        <span class="text-[10px] font-bold text-slate-500 bg-white/5 px-3 py-1 rounded-full uppercase tracking-widest">Jurnal JTI</span>
                     </div>
-                    <span class="text-[10px] font-bold text-slate-500 bg-white/5 px-3 py-1 rounded-full uppercase tracking-widest">Jurnal JTI</span>
-                </div>
-                
-                <h3 class="text-xl font-bold text-white mb-3 leading-tight group-hover:text-blue-400 transition">
-                    Sneak-App Quality Measurement Using FURPS Model
-                </h3>
-                <p class="text-slate-500 text-xs leading-relaxed mb-6">
-                    Menganalisis kualitas perangkat lunak menggunakan model FURPS dan Euclidean Distance untuk memastikan akurasi performa sistem POS.
-                </p>
-                
-                <div class="flex items-center justify-between pt-6 border-t border-white/5">
-                    <span class="text-[10px] text-slate-400 italic">Maret 2025 • Published</span>
-                    <a href="#" class="text-blue-400 text-xs font-bold hover:underline flex items-center gap-2">
-                        Read Full Paper <i class="fas fa-external-link-alt text-[10px]"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="group relative glass p-8 rounded-[2.5rem] border border-white/5 hover:border-emerald-500/30 transition-all duration-500">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="bg-emerald-500/10 p-4 rounded-2xl text-emerald-400">
-                        <i class="fas fa-microchip text-2xl"></i>
+                    
+                    <h3 class="text-xl font-bold text-white mb-3 leading-tight group-hover:text-blue-400 transition">
+                        Sneak-App Quality Measurement Using FURPS Model
+                    </h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-6">
+                        Menganalisis kualitas perangkat lunak menggunakan model FURPS dan Euclidean Distance untuk memastikan akurasi performa sistem POS.
+                    </p>
+                    
+                    <div class="flex items-center justify-between pt-6 border-t border-white/5">
+                        <span class="text-[10px] text-slate-400 italic">Maret 2025 • Published</span>
+                        <a href="#" class="text-blue-400 text-xs font-bold hover:underline flex items-center gap-2">
+                            Read Full Paper <i class="fas fa-external-link-alt text-[10px]"></i>
+                        </a>
                     </div>
-                    <span class="text-[10px] font-bold text-slate-500 bg-white/5 px-3 py-1 rounded-full uppercase tracking-widest">Jurnal JITET</span>
                 </div>
-                
-                <h3 class="text-xl font-bold text-white mb-3 leading-tight group-hover:text-emerald-400 transition">
-                    IoT Fishing Bait Detection & Fuzzy Logic System
-                </h3>
-                <p class="text-slate-500 text-xs leading-relaxed mb-6">
-                    Riset implementasi sistem deteksi aktivitas umpan pancing dan pengukuran berat ikan berbasis IoT menggunakan logika Fuzzy.
-                </p>
-                
-                <div class="flex items-center justify-between pt-6 border-t border-white/5">
-                    <span class="text-[10px] text-slate-400 italic">April 2025 • Published</span>
-                    <a href="#" class="text-emerald-400 text-xs font-bold hover:underline flex items-center gap-2">
-                        Read Full Paper <i class="fas fa-external-link-alt text-[10px]"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
 
-        <div class="mt-12 glass p-6 rounded-3xl border border-blue-500/20 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/30">
-                    <i class="fas fa-certificate text-xl"></i>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold text-sm">Hak Kekayaan Intelektual (HKI) Terdaftar</h4>
-                    <p class="text-[10px] text-slate-500 uppercase tracking-widest">No. EC002025188537 • BITEWORKS POS</p>
+                <div class="group relative glass p-8 rounded-[2.5rem] border border-white/5 hover:border-emerald-500/30 transition-all duration-500">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="bg-emerald-500/10 p-4 rounded-2xl text-emerald-400">
+                            <i class="fas fa-microchip text-2xl"></i>
+                        </div>
+                        <span class="text-[10px] font-bold text-slate-500 bg-white/5 px-3 py-1 rounded-full uppercase tracking-widest">Jurnal JITET</span>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-white mb-3 leading-tight group-hover:text-emerald-400 transition">
+                        IoT Fishing Bait Detection & Fuzzy Logic System
+                    </h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-6">
+                        Riset implementasi sistem deteksi aktivitas umpan pancing dan pengukuran berat ikan berbasis IoT menggunakan logika Fuzzy.
+                    </p>
+                    
+                    <div class="flex items-center justify-between pt-6 border-t border-white/5">
+                        <span class="text-[10px] text-slate-400 italic">April 2025 • Published</span>
+                        <a href="#" class="text-emerald-400 text-xs font-bold hover:underline flex items-center gap-2">
+                            Read Full Paper <i class="fas fa-external-link-alt text-[10px]"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <span class="px-6 py-2 bg-blue-600/10 text-blue-400 rounded-xl text-[10px] font-bold border border-blue-500/20">
-                Verified Innovation
-            </span>
+
+            <div class="mt-12 glass p-6 rounded-3xl border border-blue-500/20 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/30">
+                        <i class="fas fa-certificate text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold text-sm">Hak Kekayaan Intelektual (HKI) Terdaftar</h4>
+                        <p class="text-[10px] text-slate-500 uppercase tracking-widest">No. EC002025188537 • BITEWORKS POS</p>
+                    </div>
+                </div>
+                <span class="px-6 py-2 bg-blue-600/10 text-blue-400 rounded-xl text-[10px] font-bold border border-blue-500/20">
+                    Verified Innovation
+                </span>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <footer class="py-20 text-center border-t border-white/5">
         <div class="flex justify-center gap-6 mb-8 text-xl">
